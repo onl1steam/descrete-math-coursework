@@ -3,16 +3,16 @@ package com.company.heapsort;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Heap<T extends Comparable<T>> {
-    private ArrayList<T> a = new ArrayList<>();
+public class Heap {
+    private ArrayList<Integer> a = new ArrayList<>();
 
-    public Heap(T... a) {
+    public Heap(Integer... a) {
         this.a = new ArrayList<>(Arrays.asList(a));
         makeHeap();
     }
 
-    public Heap(ArrayList<T> a) {
-        this.a = (ArrayList<T>) a.clone();
+    public Heap(ArrayList<Integer> a) {
+        this.a = (ArrayList<Integer>)a.clone();
         makeHeap();
     }
 
@@ -28,8 +28,8 @@ public class Heap<T extends Comparable<T>> {
     private void siftUp(int vertex) {
         if (vertex == 0) return;
         int parent = (vertex - 1) / 2;
-        if (a.get(vertex).compareTo(a.get(parent)) < 0) {
-            T tmp = a.get(parent);
+        if (a.get(vertex) < a.get(parent)) {
+            Integer tmp = a.get(parent);
             a.set(parent, a.get(vertex));
             a.set(vertex, tmp);
             siftUp(parent);
@@ -42,9 +42,9 @@ public class Heap<T extends Comparable<T>> {
         int rv = 2 * vertex + 2;
         if (lv >= a.size()) return;
         if (rv == a.size()) rv = lv;
-        int mv = a.get(lv).compareTo(a.get(rv)) < 0 ? lv : rv;
-        if (a.get(mv).compareTo(a.get(vertex)) < 0) {
-            T tmp = a.get(vertex);
+        int mv = a.get(lv) < a.get(rv) ? lv : rv;
+        if (a.get(mv) < a.get(vertex)) {
+            Integer tmp = a.get(vertex);
             a.set(vertex, a.get(mv));
             a.set(mv, tmp);
             siftDown(mv);
@@ -52,15 +52,15 @@ public class Heap<T extends Comparable<T>> {
     }
 
     // Добавить элемент
-    public void add(T value) {
+    public void add(int value) {
         a.add(value);
         siftUp(a.size() - 1);
     }
 
     // Забрать верхний элемент
-    public T pool() {
+    public Integer pool() {
         if (a.size() == 0) return null;
-        T res = a.get(0);
+        Integer res = a.get(0);
         a.set(0, a.get(a.size() - 1));
         a.remove(a.size() - 1);
         siftDown(0);
@@ -73,8 +73,8 @@ public class Heap<T extends Comparable<T>> {
     }
 
     // Получить отсортированный массив
-    public ArrayList<T> sort() {
-        ArrayList<T> result = new ArrayList<>();
+    public ArrayList<Integer> sort() {
+        ArrayList<Integer> result = new ArrayList<>();
         while (!isEmpty()) {
             result.add(pool());
         }
