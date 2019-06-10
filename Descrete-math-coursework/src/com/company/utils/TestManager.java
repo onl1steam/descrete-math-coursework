@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class TestManager {
-    private TestManager() {
-    }
-
     // [-number; number-1]
     public static int[] generateArray(int number) {
         int[] result = new int[number];
@@ -91,5 +88,46 @@ public class TestManager {
         Timsort.timSort(dataArray, dataArray.length);
         System.out.println(String.format("Timsort: %f с",
                 (System.nanoTime() - begin) / 1000000000f));
+
+        for (int i = 0; i < numberData; i++) {
+            if (!resultHeap.get(i).equals(resultTree.get(i))
+                    || !resultHeap.get(i).equals(dataArray[i])
+                    || !resultTree.get(i).equals(dataArray[i])){
+                throw new RuntimeException("Error in a sort");
+            }
+        }
+    }
+
+    public static void testSortsForDiagram(int numberData) {
+        int[] dataArray = generateArray(numberData);
+        ArrayList<Integer> dataArrayList = new ArrayList<>();
+        for (int i = 0; i < dataArray.length; i++) {
+            dataArrayList.add(dataArray[i]);
+        }
+
+        long begin = System.nanoTime();
+        Heap heap = new Heap(dataArrayList);
+        ArrayList<Integer> resultHeap = heap.sort();
+        System.out.print(String.format("%d\t",
+                (System.nanoTime() - begin)));
+
+        begin = System.nanoTime();
+        Tree tree = new Tree(dataArray);
+        ArrayList<Integer> resultTree = tree.sort();
+        System.out.print(String.format("%d\t",
+                (System.nanoTime() - begin)));
+
+        begin = System.nanoTime();
+        Timsort.timSort(dataArray, dataArray.length);
+        System.out.println(String.format("%d",
+                (System.nanoTime() - begin)));
+
+        for (int i = 0; i < numberData; i++) {
+            if (!resultHeap.get(i).equals(resultTree.get(i))
+                    || !resultHeap.get(i).equals(dataArray[i])
+                    || !resultTree.get(i).equals(dataArray[i])){
+                throw new RuntimeException("Error in a sort");
+            }
+        }
     }
 }
