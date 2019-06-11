@@ -10,18 +10,20 @@ import java.util.Arrays;
 public class TestManager {
     // [-number; number-1]
     public static int[] generateArray(int number) {
-        int[] result;
-        result = randomizer(number);
+        int[] result = new int[number];
+        for (int i = 0; i < number; i++){
+            result[i] = (int) (2 * number * Math.random() - number);
+        }
         return result;
     }
 
-    public static ArrayList<Integer> generateArrayList(int number) {
+    /*public static ArrayList<Integer> generateArrayList(int number) {
         ArrayList<Integer> result = new ArrayList<>();
         for (int i = 0; i < number; i++) {
             result.add((int) (2 * number * Math.random() - number));
         }
         return result;
-    }
+    }*/
 
     public static void printArrayList(ArrayList<Integer> arrayList) {
         System.out.println(arrayList);
@@ -31,7 +33,7 @@ public class TestManager {
         System.out.println(Arrays.toString(array));
     }
 
-    public static void testSortsWithResults(int numberData) {
+    /*public static void testSortsWithResults(int numberData) {
         int[] dataArray = generateArray(numberData);
         ArrayList<Integer> dataArrayList = new ArrayList<>();
         for (int i = 0; i < dataArray.length; i++) {
@@ -61,9 +63,9 @@ public class TestManager {
                 throw new RuntimeException("Error in a sort");
             }
         }
-    }
+    }*/
 
-    public static void testSortsWithTime(int numberData) {
+    /*public static void testSortsWithTime(int numberData) {
         int[] dataArray = generateArray(numberData);
         ArrayList<Integer> dataArrayList = new ArrayList<>();
         for (int i = 0; i < dataArray.length; i++) {
@@ -94,36 +96,43 @@ public class TestManager {
                 throw new RuntimeException("Error in a sort");
             }
         }
-    }
+    }*/
 
-    public static void testSortsForDiagram(int numberData) {
-        int[] dataArray = generateArray(numberData);
-        ArrayList<Integer> dataArrayList = new ArrayList<>();
-        for (int i = 0; i < dataArray.length; i++) {
-            dataArrayList.add(dataArray[i]);
-            System.out.print(dataArray[i] + " ");
+    public static void testSortsForDiagram(int numberData, int repeat) {
+        double sumHeap = 0 , sumTree = 0, sumTim = 0;
+
+        for (int iRepeat = 0; iRepeat < repeat; iRepeat++){
+            int[] dataArray = generateArray(numberData);
+            ArrayList<Integer> dataArrayList = new ArrayList<>();
+            for (int i = 0; i < dataArray.length; i++) {
+                dataArrayList.add(dataArray[i]);
+            }
+
+            long begin = System.nanoTime();
+            Heap heap = new Heap(dataArrayList);
+            ArrayList<Integer> resultHeap = heap.sort();
+            sumHeap += System.nanoTime() - begin;
+
+            begin = System.nanoTime();
+            Tree tree = new Tree(dataArray);
+            ArrayList<Integer> resultTree = tree.sort();
+            sumTree += System.nanoTime() - begin;
+
+            begin = System.nanoTime();
+            Timsort.timSort(dataArray, dataArray.length);
+            sumTim += System.nanoTime() - begin;
         }
-        System.out.println();
+
+        sumHeap /= repeat;
+        sumTree /= repeat;
+        sumTim /= repeat;
+
+        System.out.print(String.format("%d\t",numberData));
+        System.out.print(String.format("%f\t", sumHeap / 1000000000));
+        System.out.print(String.format("%f\t", sumTree / 1000000000));
+        System.out.println(String.format("%f", sumTim / 1000000000));
 
 
-//
-//        long begin = System.nanoTime();
-//        Heap heap = new Heap(dataArrayList);
-//        ArrayList<Integer> resultHeap = heap.sort();
-//        System.out.print(String.format("%d\t",
-//                (System.nanoTime() - begin)));
-//
-//        begin = System.nanoTime();
-//        Tree tree = new Tree(dataArray);
-//        ArrayList<Integer> resultTree = tree.sort();
-//        System.out.print(String.format("%d\t",
-//                (System.nanoTime() - begin)));
-//
-//        begin = System.nanoTime();
-//        Timsort.timSort(dataArray, dataArray.length);
-//        System.out.println(String.format("%d",
-//                (System.nanoTime() - begin)));
-//
 //        for (int i = 0; i < numberData; i++) {
 //            if (!resultHeap.get(i).equals(resultTree.get(i))
 //                    || !resultHeap.get(i).equals(dataArray[i])
