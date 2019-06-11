@@ -10,10 +10,8 @@ import java.util.Arrays;
 public class TestManager {
     // [-number; number-1]
     public static int[] generateArray(int number) {
-        int[] result = new int[number];
-        for (int i = 0; i < number; i++) {
-            result[i] = (int) (2 * number * Math.random() - number);
-        }
+        int[] result;
+        result = randomizer(number);
         return result;
     }
 
@@ -103,31 +101,61 @@ public class TestManager {
         ArrayList<Integer> dataArrayList = new ArrayList<>();
         for (int i = 0; i < dataArray.length; i++) {
             dataArrayList.add(dataArray[i]);
+            System.out.print(dataArray[i] + " ");
+        }
+        System.out.println();
+
+
+//
+//        long begin = System.nanoTime();
+//        Heap heap = new Heap(dataArrayList);
+//        ArrayList<Integer> resultHeap = heap.sort();
+//        System.out.print(String.format("%d\t",
+//                (System.nanoTime() - begin)));
+//
+//        begin = System.nanoTime();
+//        Tree tree = new Tree(dataArray);
+//        ArrayList<Integer> resultTree = tree.sort();
+//        System.out.print(String.format("%d\t",
+//                (System.nanoTime() - begin)));
+//
+//        begin = System.nanoTime();
+//        Timsort.timSort(dataArray, dataArray.length);
+//        System.out.println(String.format("%d",
+//                (System.nanoTime() - begin)));
+//
+//        for (int i = 0; i < numberData; i++) {
+//            if (!resultHeap.get(i).equals(resultTree.get(i))
+//                    || !resultHeap.get(i).equals(dataArray[i])
+//                    || !resultTree.get(i).equals(dataArray[i])){
+//                throw new RuntimeException("Error in a sort");
+//            }
+//        }
+    }
+
+    static int[] randomizer(int number) {
+        // Индекс массива
+        int index = 0;
+        // Левая и правая границы, размер
+        int a = 0;
+        int b = 1;
+        int size = 1;
+        // Сортировка
+        int[] result = new int[number];
+        // Генерация рандомного отсортированного участка
+        for(; index < result.length / 2; index++) {
+            result[index] = a + (int) (Math.random() * b);
+            a += size;
+            b += size;
+        }
+        // Генерация рандомного неотсортированного участка
+        for(; index < result.length; index++) {
+            result[index] = a + (int) (Math.random() * b);
+            b -= size;
+            a -= size;
         }
 
-        long begin = System.nanoTime();
-        Heap heap = new Heap(dataArrayList);
-        ArrayList<Integer> resultHeap = heap.sort();
-        System.out.print(String.format("%d\t",
-                (System.nanoTime() - begin)));
+        return result;
 
-        begin = System.nanoTime();
-        Tree tree = new Tree(dataArray);
-        ArrayList<Integer> resultTree = tree.sort();
-        System.out.print(String.format("%d\t",
-                (System.nanoTime() - begin)));
-
-        begin = System.nanoTime();
-        Timsort.timSort(dataArray, dataArray.length);
-        System.out.println(String.format("%d",
-                (System.nanoTime() - begin)));
-
-        for (int i = 0; i < numberData; i++) {
-            if (!resultHeap.get(i).equals(resultTree.get(i))
-                    || !resultHeap.get(i).equals(dataArray[i])
-                    || !resultTree.get(i).equals(dataArray[i])){
-                throw new RuntimeException("Error in a sort");
-            }
-        }
     }
 }
