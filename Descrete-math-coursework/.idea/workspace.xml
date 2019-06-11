@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6dbb9a74-d021-4ad1-81a9-4eb95d32ec4d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/heapsort/Heap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/heapsort/Heap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/timsort/Timsort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/timsort/Timsort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/treesort/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/treesort/Tree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/utils/TestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/utils/TestManager.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="75" selection-start-line="9" selection-start-column="75" selection-end-line="9" selection-end-column="75" />
+            <state relative-caret-position="119">
+              <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -67,12 +64,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/utils/TestManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-439">
-              <caret line="140" column="61" selection-start-line="140" selection-start-column="61" selection-end-line="140" selection-end-column="61" />
+            <state relative-caret-position="266">
+              <caret line="142" column="70" lean-forward="true" selection-start-line="142" selection-start-column="70" selection-end-line="142" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1560277878411" expanded="true" signature="589:871" ph="..." />
-                <marker date="1560277878411" expanded="true" signature="879:1109" ph="..." />
+                <marker date="1560279138843" expanded="true" signature="589:871" ph="..." />
+                <marker date="1560279138843" expanded="true" signature="879:1109" ph="..." />
               </folding>
             </state>
           </provider>
@@ -204,7 +201,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19595142" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -215,7 +211,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23978686" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.110124335" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.40319717" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -275,20 +271,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/utils/TestManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-439">
-          <caret line="140" column="61" selection-start-line="140" selection-start-column="61" selection-end-line="140" selection-end-column="61" />
+        <state relative-caret-position="266">
+          <caret line="142" column="70" lean-forward="true" selection-start-line="142" selection-start-column="70" selection-end-line="142" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1560277878411" expanded="true" signature="589:871" ph="..." />
-            <marker date="1560277878411" expanded="true" signature="879:1109" ph="..." />
+            <marker date="1560279138843" expanded="true" signature="589:871" ph="..." />
+            <marker date="1560279138843" expanded="true" signature="879:1109" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="75" selection-start-line="9" selection-start-column="75" selection-end-line="9" selection-end-column="75" />
+        <state relative-caret-position="119">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
         </state>
       </provider>
     </entry>

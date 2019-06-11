@@ -139,7 +139,7 @@ public class TestManager {
         sumTim /= repeat;
 
         // Вывод среденего времени работы в секундах на экран
-        System.out.print(String.format("%d\t",numberData));
+        System.out.print(String.format("%d \t",numberData));
         System.out.print(String.format("%f\t", sumHeap / 1000000000));
         System.out.print(String.format("%f\t", sumTree / 1000000000));
         System.out.println(String.format("%f", sumTim / 1000000000));
