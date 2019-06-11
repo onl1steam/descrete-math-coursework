@@ -4,11 +4,12 @@ import com.company.utils.TestManager;
 
 public class Main {
 
-    // Driver code
     public static void main(String[] args) {
         System.out.println("data\tHeapsort\tTreesort\tTimsort");
+        // Протестировать сортировки на входных массивах размера data
+        // Для каждого размера входных данных повторять сортировку 1000 раз
         for (int data = 500; data <= 10000; data += 500 ) {
-                TestManager.testSortsForDiagram(data, 10000);
+                TestManager.testSortsForDiagram(data, 1000);
         }
     }
 }

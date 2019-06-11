@@ -2,15 +2,21 @@ package com.company.treesort;
 
 import java.util.ArrayList;
 
+// Двоичное дерево поиска
 public class Tree {
-    private Tree left;            // левое и правое поддеревья и ключ
+    // Левое поддерево
+    private Tree left;
+    // Правое поддерево
     private Tree right;
+    // Ключ
     private int key;
 
-    public Tree(int k) {        // конструктор с инициализацией ключа
+    // Конструктор с инициализацией ключа
+    public Tree(int k) {
         key = k;
     }
 
+    // Конструктор, принимающий целочисленный массив
     public Tree(int[] data) {
         key = data[0];
         for (int i = 1; i < data.length; i++){
@@ -34,7 +40,7 @@ public class Tree {
 
     /*  traverse (обход)
         Рекурсивно обойти левое поддерево.
-        Рассмотреть корневой узел.
+        Добавить в динамический массив ключ корневого узла
         Рекурсивно обойти правое поддерево.
     */
     public void traverse(ArrayList<Integer> sortedArray) {
@@ -47,6 +53,7 @@ public class Tree {
             right.traverse(sortedArray);
     }
 
+    // Получить отсортированный массив
     public ArrayList<Integer> sort(){
         ArrayList<Integer> sortedArray = new ArrayList<>();
         traverse(sortedArray);
